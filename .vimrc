@@ -8,7 +8,7 @@ syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-compiler ruby         " Enable compiler support for ruby
+"compiler ruby         " Enable compiler support for ruby
 set noswapfile
 set autoindent
 set hlsearch
@@ -26,10 +26,18 @@ set laststatus=2
 set linespace=5
 set wildmenu " show list instead of just completing
 set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all.
-
+set foldlevelstart=99 
 set encoding=utf-8
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1 " 如果你要打开的文件编码不在此列，那就添加进去
 set termencoding=utf-8
+set dir=/tmp
+
+set guioptions:
+set guifont=Monaco\ 12
+set showcmd
+set nowrap
+"behave mswin
+colorscheme molokai
 
 " Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
@@ -51,6 +59,9 @@ noremap <silent> <leader>tt :NERDTreeToggle<CR>
 noremap <silent> <leader>tl :Tlist<CR>
 noremap <silent> <leader>ts :call ToggleSketch()<CR>
 noremap <silent>nf :NERDTreeFind<CR>
+" go 快捷
+noremap <silent>gi :GoImplements<CR>
+noremap <silent>gr :GoReferrers<CR>
 
 " sudo apt-get install ack-grep
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
